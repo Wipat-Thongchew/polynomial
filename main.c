@@ -43,7 +43,7 @@ int main(){
     char **data = loadfile("data.csv",&length);
     printf("%d\n" ,length);
     
-    // this is where i try thing ---> can ignore
+    // this is where i try thing ---> you can ignore
     for (int i = 0;i < length; i++){
         printf("%s \n", data[i]);
     }
