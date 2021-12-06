@@ -4,7 +4,7 @@
 
 int length = 0;
 size_t lineLim = 256;
-int data[10]; // i try to the same as Prof,but i don't understand
+int data[10]; // i try to do the same as Prof,but i don't understand
 
 char **loadfile(char *fn,int *len){
     FILE *fp = fopen(fn,"r");
