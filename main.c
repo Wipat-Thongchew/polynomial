@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 int length = 0;
 size_t lineLim = 256;
-int data[10];
+int data[10]; // i try to the same as Prof,but i don't understand
 
 char **loadfile(char *fn,int *len){
     FILE *fp = fopen(fn,"r");
@@ -43,6 +42,8 @@ int main(){
     
     char **data = loadfile("data.csv",&length);
     printf("%d\n" ,length);
+    
+    // this is where i try thing ---> can ignore
     for (int i = 0;i < length; i++){
         printf("%s \n", data[i]);
     }
