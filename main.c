@@ -29,7 +29,7 @@ char **loadfile(char *fn,int *len){
                 printf("can't allocate ");
             }
         }
-        // this section suppose to get int from string inside int array
+        // this section suppose to get int from string and put it inside int array
 
         line[i] = // here is to insert data which idk how to 
         i++;
