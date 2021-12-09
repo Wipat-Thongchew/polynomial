@@ -4,7 +4,6 @@
 
 int length = 0;
 size_t lineLim = 256;
-int data[10]; // i try to do the same as Prof,but i don't understand
 
 char **loadfile(char *fn,int *len){
     FILE *fp = fopen(fn,"r");
@@ -13,13 +12,10 @@ char **loadfile(char *fn,int *len){
     }
     char **line = (char **)malloc(lineLim * sizeof(char *));
 
-    char *end;
     char buffer[1000];
     int i = 0;
-    size_t n = 0;
     while (fgets(buffer,lineLim,fp))
     {
-
         //check line array if full increase if over limited increase it 
         if (i == lineLim){
             lineLim *= 2;
@@ -28,24 +24,72 @@ char **loadfile(char *fn,int *len){
                 printf("can't allocate ");
             }
         }
-        // this section suppose to get int from string and put it inside int array
-
-        line[i] = // here is to insert data which idk how to 
+        buffer[strlen(buffer)] = '\0';
+        int slen = strlen(buffer);
+        char *poly = (char *)malloc((slen + 1) * sizeof(char));
+        strcpy(poly,buffer);
+        line[i] = poly;
         i++;
     }
     *len = i; // return length of line
     return line;
 }
 
-int main(){
+int max(int m, int n) {  
+    return (m > n)? m: n; 
+}
+
+int *add(int *A, int *B, int m, int n)
+{
+   int size = max(m, n);
+   int *sum = (int*)malloc(size*sizeof(int));
+   memset(sum, 0, size*sizeof(sum[0]));
+   
+   for (int i = 0; i<m; i++)
+     sum[i] = A[i];
+ 
+   for (int i=0; i<n; i++)
+       sum[i] += B[i];
     
-    
-    char **data = loadfile("data.csv",&length);
-    printf("%d\n" ,length);
-    
-    // this is where i try thing ---> you can ignore
-    for (int i = 0;i < length; i++){
-        printf("%s \n", data[i]);
+   return sum;
+}
+
+int* convert_int(char *arr,int *m){
+    int len=strlen(arr),i;
+    const char *tok;
+    int column = 0;
+	int *a=(int*)malloc(len*sizeof(int));
+    char* value = strtok(arr, ", ");
+    while (value) {
+                int sepInt = atoi(value);
+                a[column] = sepInt;
+                value = strtok(NULL, ", ");
+                column++;
+            }
+    *m = column;
+    return a;
+}
+
+void printPoly(int* poly, int n)
+{
+    for (int i=0; i< n; i++){
+       printf("%d",poly[i]);
+       if (i != 0)
+        printf("x^%d",i);
+       if (i != n-1)
+       printf(" + ");
     }
+}   
+
+int main(){
+    int poly1_max , poly2_max;
+    char **data = loadfile("data.csv",&length);
+    int *poly1 = convert_int(data[0],&poly1_max);
+    int *poly2 = convert_int(data[1],&poly2_max);    
+    int *sum = add(poly1,poly2,poly1_max,poly2_max);
+    int size = max(poly1_max,poly2_max);
+    printPoly(sum,size);
+
+
     return 0;
 }
