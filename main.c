@@ -84,6 +84,17 @@ void printPoly(int* poly, int n)
     }
 }   
 
+void printAll(char **data,int length){
+    int poly_max;
+    for(int i = 0;i < length;i++){
+        int *poly = convert_int(data[i],&poly_max);
+        printf("%d: ",i);
+        printPoly(poly,poly_max);
+        printf("\n");
+    }
+}
+
+
 int main(){
     int poly1_max , poly2_max;
     char **data = loadfile("data.csv",&length);
