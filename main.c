@@ -58,7 +58,7 @@ int* convert_int(char *arr,int *m){
     int len=strlen(arr),i;
     const char *tok;
     int column = 0;
-	int *a=(int*)malloc(len*sizeof(int));
+	int *a = (int*)malloc(len*sizeof(int));
     char* value = strtok(arr, ", ");
     while (value) {
                 int sepInt = atoi(value);
@@ -66,6 +66,7 @@ int* convert_int(char *arr,int *m){
                 value = strtok(NULL, ", ");
                 column++;
             }
+    a = realloc(a,column*sizeof(int));
     *m = column;
     return a;
 }
