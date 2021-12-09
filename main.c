@@ -54,6 +54,8 @@ int *add(int *A, int *B, int m, int n)
    return sum;
 }
 
+//minus poly
+
 int* convert_int(char *arr,int *m){
     int len=strlen(arr),i;
     const char *tok;
