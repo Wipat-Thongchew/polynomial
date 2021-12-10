@@ -58,10 +58,13 @@ int *add(int *A, int *B, int m, int n)
 
 int* convert_int(char *arr,int *m){
     int len=strlen(arr),i;
+    char *temp = (char*)malloc(len * sizeof(char));
+    memcpy(temp,arr,sizeof(char) * len);
+
     const char *tok;
     int column = 0;
 	int *a = (int*)malloc(len*sizeof(int));
-    char* value = strtok(arr, ", ");
+    char* value = strtok(temp, ", ");
     while (value) {
                 int sepInt = atoi(value);
                 a[column] = sepInt;
@@ -70,6 +73,7 @@ int* convert_int(char *arr,int *m){
             }
     a = realloc(a,column*sizeof(int));
     *m = column;
+    free(temp);
     return a;
 }
 
