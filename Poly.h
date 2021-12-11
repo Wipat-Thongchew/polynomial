@@ -61,7 +61,6 @@ int* convert_int(char *arr,int *m){
 void printPoly(int* poly, int n)
 {
     for (int i=0; i< n; i++){
-        if(poly[i] != 0)
         printf("%d",poly[i]);
         if (i != 0)
         printf("x^%d",i);
