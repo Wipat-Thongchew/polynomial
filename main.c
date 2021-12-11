@@ -69,7 +69,7 @@ int *minus(int *A, int *B, int m, int n)
    return minus;
 }
 
-
+//cause data is in char array
 int* convert_int(char *arr,int *m){
     int len=strlen(arr),i;
     char *temp = (char*)malloc(len * sizeof(char));
