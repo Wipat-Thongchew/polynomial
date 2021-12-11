@@ -54,7 +54,21 @@ int *add(int *A, int *B, int m, int n)
    return sum;
 }
 
-//minus poly
+int *minus(int *A, int *B, int m, int n)
+{
+   int size = max(m, n);
+   int *minus = (int*)malloc(size*sizeof(int));
+   memset(minus, 0, size*sizeof(int));
+   
+    for (int i = 0; i<m; i++)
+        minus[i] = A[i];
+ 
+   for (int i=0; i<n; i++)
+        minus[i] -= B[i];
+    
+   return minus;
+}
+
 
 int* convert_int(char *arr,int *m){
     int len=strlen(arr),i;
