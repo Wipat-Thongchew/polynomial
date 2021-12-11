@@ -61,6 +61,7 @@ int* convert_int(char *arr,int *m){
 void printPoly(int* poly, int n)
 {
     for (int i=0; i< n; i++){
+        if(poly[i] != 0)
         printf("%d",poly[i]);
         if (i != 0)
         printf("x^%d",i);
@@ -113,3 +114,76 @@ int *minus(int *A, int *B, int m, int n)
     
    return minus;
 }
+
+int *multiply(int *A, int *B, int m, int n)
+{
+    int size = (m + n) - 1;
+    int *prod = (int*)malloc(size*sizeof(int));
+    for (int i = 0; i<m+n-1; i++)
+        prod[i] = 0;
+    
+    for (int i=0; i<m; i++)
+    {
+        for (int j=0; j<n; j++)
+            prod[i+j] += A[i]*B[j];
+    }
+    
+    return prod;
+}
+ 
+
+
+
+
+
+
+// void view_poly_page(char **data,int length){
+//     printAll(data,length);
+//     main_menu_page(data,length);
+// }
+
+// void main_menu_page(char **data,int length) {
+//     int choice;
+//     printf("What do you want to do\n");
+//     printf("1) look at polynomial\n");
+//     printf("2) compute polynomial\n");
+//     printf("3) Exit\n");
+//     printf("\nChoice--> ");
+//     scanf("%d", &choice);
+//     switch (choice) {
+//     case 1:
+//         view_poly_page(data,length);
+//     case 2:
+//         //compute_menu();
+//     case 3:
+//        printf("goodbye");
+//        exit(0);
+//     }
+// }
+
+// void compute_menu(){
+//     int choice;
+//     system("cls");
+//     printf("What do you want to compute\n");
+//     printf("1) Plus polynomial\n");
+//     printf("2) Minus polynomial\n");
+//     printf("3) back to main menu");
+//     printf("%d",&choice);
+//     switch(choice){
+//         case 1:
+//             plus_poly_page();
+//         case 2:
+//             minus_poly();
+//         case 3:
+//             main_menu_page();
+//         default:
+//             printf("Error");
+//             main_menu_page();
+//     }
+//     }
+
+
+
+// void plus_poly_page(char **data,int length){
+//     printf("Enter Your number from data: \n"); 
+// }
