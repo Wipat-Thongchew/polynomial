@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <math.h>
 #include "menu.h"
-#pragma GCC ignored -Wall
 
 #define filename "data.csv"
 
