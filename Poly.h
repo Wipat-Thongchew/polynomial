@@ -34,6 +34,7 @@ char **loadfile(char *fn,int *len){
     *len = i; // return length of line
     return line;
     free(buffer);
+    fclose(fp);
 }
 
 int* convert_int(char *arr,int *m){
