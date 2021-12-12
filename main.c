@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 #include "menu.h"
 #pragma GCC ignored -Wall
 
@@ -12,4 +13,5 @@ int length;
 int main(){
     data = loadfile(filename,&length);
     main_menu_page(data,length);
+    free(data);
 }

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 #include "Poly.h"
 
 
@@ -22,6 +23,8 @@ void plus_poly(char **data,int length){
     printf("The sum is: ");
     printPoly(sum,size);
     printf("\n");
+    free(poly1);
+    free(poly2);
 }
 
 void minus_poly(char **data,int length){
@@ -42,6 +45,21 @@ void minus_poly(char **data,int length){
     printf("The minus is: ");
     printPoly(minu,size);
     printf("\n");
+    free(poly1);
+    free(poly2);
+}
+
+void evaluate_poly(char **data,int length){
+    int id, x,poly_max;
+    printAll(data,length);
+    printf("Enter id of the Polynomial you want to calculate\n");
+    scanf("%d" , &id);
+    printf("What should x equal: \n");
+    scanf("%d", &x);
+    int *poly = convert_int(data[id],&poly_max);
+    int done = subtitude(poly,x,poly_max);
+    printf("Your evaluated polynomial is: %d\n" ,done);
+    free(poly);
 }
 
 void compute_menu(char **data,int length){
@@ -49,7 +67,8 @@ void compute_menu(char **data,int length){
     printf("What do you want to compute\n");
     printf("1) Plus polynomial\n");
     printf("2) Minus polynomial\n");
-    printf("3) back to main menu");
+    printf("3) evaluate polynomial\n");
+    printf("4) back to main menu");
     printf("\nChoice--> ");
     scanf("%d",&choice);
     switch(choice){
@@ -60,6 +79,9 @@ void compute_menu(char **data,int length){
             minus_poly(data,length);
             break;
         case 3:
+            evaluate_poly(data,length);
+            break;
+        case 4:
             break;
         }
 }
