@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <math.h>
-#pragma GCC ignored -Wall
 
 size_t lineLim = 64;
 
