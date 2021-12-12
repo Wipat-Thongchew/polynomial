@@ -114,22 +114,6 @@ int *minus(int *A, int *B, int m, int n)
    return minus;
 }
 
-int *multiply(int *A, int *B, int m, int n)
-{
-    int size = (m + n) - 1;
-    int *prod = (int*)malloc(size*sizeof(int));
-    for (int i = 0; i<m+n-1; i++)
-        prod[i] = 0;
-    
-    for (int i=0; i<m; i++)
-    {
-        for (int j=0; j<n; j++)
-            prod[i+j] += A[i]*B[j];
-    }
-    
-    return prod;
-}
- 
 int subtitude(int *A,int x,int m){
     int subbed = 0;
     for (int i = 0; i < m; i++) {
