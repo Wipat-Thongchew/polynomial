@@ -62,13 +62,35 @@ void evaluate_poly(char **data,int length){
     free(poly);
 }
 
+void multi_poly(char **data,int length){
+    int id1,id2,poly1_max,poly2_max;
+    int *poly1;
+    int *poly2;
+    printAll(data,length);
+    printf("Enter id of the first Polynomial\n");
+    scanf("%d" , &id1);
+    printf("Enter id of the second Polynomial\n");
+    scanf("%d" , &id2);
+    poly1 = convert_int(data[id1],&poly1_max);
+    poly2 = convert_int(data[id2],&poly2_max);
+    int *mul = mul_poly(poly1,poly2,poly1_max,poly2_max);
+    int size = poly1_max + poly2_max -1;
+    printf("The multiply of two polynomial is: ");
+    printPoly(mul,size);
+    printf("\n");
+    free(poly1);
+    free(poly2);
+    free(mul);
+}
+
 void compute_menu(char **data,int length){
     int choice;
     printf("What do you want to compute\n");
     printf("1) Plus polynomial\n");
     printf("2) Minus polynomial\n");
     printf("3) evaluate polynomial\n");
-    printf("4) back to main menu");
+    printf("4) Mulitiply polynomial\n");
+    printf("5) back to main menu");
     printf("\nChoice--> ");
     scanf("%d",&choice);
     switch(choice){
@@ -82,6 +104,9 @@ void compute_menu(char **data,int length){
             evaluate_poly(data,length);
             break;
         case 4:
+            multi_poly(data,length);
+            break;
+        case 5:
             break;
         }
 }
