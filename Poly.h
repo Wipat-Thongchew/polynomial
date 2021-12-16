@@ -129,9 +129,6 @@ int *mul_poly(int *A, int *B, int m, int n)
     int *prod = (int*)malloc(size*sizeof(int));
     memset(prod, 0, size*sizeof(int));
     
-    for (int i = 0; i<m+n-1; i++)
-    prod[i] = 0;
- 
    for (int i=0; i<m; i++)
    {
      for (int j=0; j<n; j++)
