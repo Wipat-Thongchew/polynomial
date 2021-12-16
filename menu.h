@@ -4,7 +4,6 @@
 #include <math.h>
 #include "Poly.h"
 
-
 void plus_poly(char **data,int length){
     int id1,id2,size;
     int poly1_max,poly2_max;
@@ -25,6 +24,7 @@ void plus_poly(char **data,int length){
     printf("\n");
     free(poly1);
     free(poly2);
+    free(sum);
 }
 
 void minus_poly(char **data,int length){
@@ -47,6 +47,7 @@ void minus_poly(char **data,int length){
     printf("\n");
     free(poly1);
     free(poly2);
+    free(minu);
 }
 
 void evaluate_poly(char **data,int length){
@@ -133,5 +134,3 @@ void main_menu_page(char **data,int length) {
         }
     }
 }
-
-
