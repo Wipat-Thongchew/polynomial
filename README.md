@@ -11,6 +11,7 @@ libary used:
 4.math.h
 
 function 
+
 1.convert csv file into polynomial 
 
 2.calculate polynomial
